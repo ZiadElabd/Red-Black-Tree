@@ -270,15 +270,15 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     public Map.Entry<T, V> lastEntry() {
         if(tree.isEmpty())
             return null;
-        INode root = tree.getRoot();
-        INode prev = tree.getRoot();
+        INode<T, V> root = tree.getRoot();
+        INode<T, V> prev = tree.getRoot();
         if (tree.isEmpty())
             return null;
         while (root!=null && !root.isNull()){
             prev = root;
             root = root.getRightChild();
         }
-        Map.Entry <T, V> last = new AbstractMap.SimpleEntry<T, V>((T)prev.getKey(), (V) prev.getValue());
+        Map.Entry <T, V> last = new AbstractMap.SimpleEntry<>(prev.getKey(),prev.getValue());
         return last;
     }
 
@@ -340,8 +340,23 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
 
     @Override
     public int size() {
-        return 0;
+        int[] s = new int[1];
+        s[0] = 0;
+        if(!tree.isEmpty())
+            sizeloop(tree.getRoot(),s);
+        return s[0];
     }
+
+
+    private int[] sizeloop(INode root, int[] s) {
+        if (root != null && !root.isNull()) {
+            sizeloop(root.getLeftChild(), s);
+            s[0]++;
+            sizeloop(root.getRightChild(), s);
+        }
+        return s;
+    }
+
 
     @Override
     public Collection<V> values() {
