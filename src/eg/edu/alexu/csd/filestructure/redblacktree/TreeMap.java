@@ -12,7 +12,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         // TODO Auto-generated method stub
         V reutrnvalue = null;
         T returnKey = null;
-        if(key==null) return null;
+        if(key==null) throw new  RuntimeErrorException(null);
         reutrnvalue=tree.search(key);
         //if the key is in the map we get the value of it
         if(reutrnvalue!=null){
@@ -56,7 +56,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     @Override
     public T ceilingKey(T key) {
         T returnKey = null;
-        if(key==null) throw new NullPointerException();
+        if(key==null) throw new  RuntimeErrorException(null); ;
         boolean status= tree.contains(key);
         if(status==true){
             returnKey= key;
@@ -81,13 +81,14 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     @Override
     public boolean containsKey(T key) {
         // TODO Auto-generated method stub
-        if (key==null) throw new NullPointerException();
+        if (key==null) throw new RuntimeErrorException(null);
         return tree.contains( key);
     }
 
     @Override
     public boolean containsValue(V value) {
         // TODO Auto-generated method stub
+        if (value==null) throw new RuntimeErrorException(null);
         INode<T, V> root =tree.getRoot();
         return Preordersearch(root,value);
     }
