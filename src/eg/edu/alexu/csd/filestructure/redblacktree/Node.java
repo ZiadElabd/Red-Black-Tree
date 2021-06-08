@@ -96,7 +96,7 @@ public class Node<T extends Comparable<T> ,V> implements INode<T,V>{
     @Override
     public boolean isNull() {
         // TODO Auto-generated method stub
-        return (this == null);
+        return (this.val == null);
     }
 
 
