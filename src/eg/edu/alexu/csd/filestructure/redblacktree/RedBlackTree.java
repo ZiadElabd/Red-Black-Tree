@@ -1,393 +1,410 @@
 package eg.edu.alexu.csd.filestructure.redblacktree;
 
+import javax.management.RuntimeErrorException;
 
-import java.util.ArrayList;
-
-
-public class RedBlackTree<T extends Comparable<T>, V>  implements IRedBlackTree<T, V> {
+public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T,V> {
 	
-	private INode<T, V> nil = new Node<T,V>();
-	private INode<T, V> root = nil ;
-	private ArrayList<T> inOrderTraverse = new ArrayList<T>();
-	
-	
-	 public RedBlackTree() {
-	        root.setLeftChild(nil);
-	        root.setRightChild(nil);
-	        root.setParent(nil);
-	    }
-	 
-	  
-	 private boolean isNil(INode<T, V> node){
-			return (node == nil);
-		}
+    private INode<T,V> root = new Node();
+    private T lastkey = null;
+    int count = 1;
 
-	@Override
-	public INode<T, V> getRoot() {
-		return this.root;
-	}
 
-	@Override
-	public boolean isEmpty() {
-		return (this.root==nil);
-	}
+    @Override
+    public INode<T,V> getRoot() {
+        return root;
+    }
 
-	@Override
-	public void clear() {
-		    this.root.setLeftChild(nil);
-	        this.root.setRightChild(nil);
-	        this.root.setParent(nil);
-	        this.root = nil ;
-	}
+    @Override
+    public boolean isEmpty() {
+        return (root==null || root.isNull()) ;
+    }
 
-	@Override
-	public V search(T key) {
-		      INode<T, V> current = root;
-				while (!isNil(current)){
-					if (current.getKey().equals(key))
-						return current.getValue();
-					else if (current.getKey().compareTo(key) < 0)
-						current = current.getRightChild();
-					else
-						current = current.getLeftChild();
-				}
-				return null;
-	}
-	
-	public   INode<T, V>  searchToGetNode(T key) {
-	      INode<T, V> current = root;
-			while (!isNil(current)){
-				if (current.getKey().equals(key))
-					return current;
-				else if (current.getKey().compareTo(key) < 0)
-					current = current.getRightChild();
-				else
-					current = current.getLeftChild();
-			}
-			return nil;
-}
+    @Override
+    public void clear() {
+        root=null;
+    }
 
-	@Override
-	public boolean contains(T key) {
-		V v = this.search(key);
-		return (v != null);
-	}
+    @Override
+    public V search(T key) {
+        INode<T,V> root = getRoot();
+        if (key == null)
+            throw new RuntimeErrorException(null);
+        while (root != null && !root.isNull()) {
+            if (key.compareTo(root.getKey()) == 0)
+                return root.getValue();
+            else if (key.compareTo(root.getKey()) < 0)
+                root = root.getLeftChild();
+            else if (key.compareTo(root.getKey()) > 0)
+                root = root.getRightChild();
+        }
+        return null;
+    }
 
-	
-	private void leftRotate(INode<T, V> x){
+    @Override
+    public boolean contains(T key) {
+       V v = this.search(key) ;
+       return v!=null ;
+    }
 
-		INode<T, V> y;
-		y = x.getRightChild();
-		x.setRightChild(y.getLeftChild());
+    @Override
+    public void insert(T key, V value) {
+        if(key==null || value==null)
+            throw new RuntimeErrorException(null);
+        INode available = getByKey(key);
+        if (available != null && !available.isNull())
+            available.setValue(value);
+        else {
+            BSinsert(getRoot(), key, value, new Node());
+            INode last = getByKey(lastkey);
+            count++;
+            Coloring(last);
+        }
+        return;
+    }
 
-		// Check for existence of y.left and make pointer changes
-		if (!isNil(y.getLeftChild()))
-			y.getLeftChild().setParent(x); 
-		y.setParent(x.getParent());
+    private INode<T,V> getByKey(Comparable key) {
+        INode root = getRoot();
+        while (root != null && !root.isNull()) {
+            int comp = key.compareTo(root.getKey());
+            if (comp == 0)
+                return root;
+            else if (comp < 0)
+                root = root.getLeftChild();
+            else if (comp > 0)
+                root = root.getRightChild();
+        }
+        return null;
+    }
 
-		// x's parent is nul
-		if (isNil(x.getParent()))
-			root = y;
+   private INode<T,V> BSinsert(INode<T,V> root, T key, V value, INode<T,V> parent) {
+        if (root == null || root.isNull() ) {
+            if(root == null)
+                root = new Node();
 
-		// x is the left child of it's parent
-		else if (x.getParent().getLeftChild() == x)
-			x.getParent().setLeftChild(y); 
+            if (getRoot() == null || getRoot().isNull()) {
+                root.setColor(false);
+                root = root;
+            }
+            else
+                root.setColor(true);
 
-		// x is the right child of it's parent.
-		else
-			x.getParent().setRightChild(y); 
+            root.setKey(key);
+            root.setValue(value);
+            root.setParent(parent);
+            lastkey = root.getKey();
+            INode l = new Node();
+            l.setKey(null);
+            root.setLeftChild(l);
+            INode r = new Node();
+            r.setKey(null);
+            root.setRightChild(r);
+            return root;
+        }
 
-		// Finish of the leftRotate
-		y.setLeftChild(x); 
-		x.setParent(y); 
-	}
-	
-	private void rightRotate(INode<T, V> y){
+        if (key.compareTo(root.getKey()) < 1) {
+            root.setLeftChild(BSinsert(root.getLeftChild(), key, value, root));
+        } else if (key.compareTo(root.getKey()) == 1) {
+            root.setRightChild(BSinsert(root.getRightChild(), key, value, root));
+        }
+        return root;
+    }
 
-		INode<T, V>  x = y.getLeftChild();
-        y.setLeftChild(x.getRightChild()); 
+    private void Coloring(INode<T,V> node) {
+        INode<T,V> x = node;
+        INode<T,V> p = null;
+        INode<T,V> g = null;
+        INode<T,V> u = null;
+        INode<T,V> t = null;
+        if (x!=null && !x.isNull() && x.getColor() == true) {
+            p = x.getParent();
+            if (!p.isNull() && !p.isNull()) {
+                g = p.getParent();
+                if (!g.isNull() && !g.isNull()) {
+                    if (g.getLeftChild() != null && !g.getLeftChild().isNull() && p.getKey().compareTo(g.getLeftChild().getKey()) == 0)
+                        u = g.getRightChild();
+                    else
+                        u = g.getLeftChild();
+                    if (u != null && !u.isNull() && u.getColor() == true && p.getColor() == true)  {
+                        p.setColor(false);
+                        u.setColor(false);
+                        g.setColor(true);
+                        Coloring(g);
+                    }
+                    else if(p.getColor() == true) {
+                        INode New = UncleBlack(x, p, g, u);
+                        Coloring(New);
+                    }
+                }
+            } else
+                x.setColor(false);
+        }
+        return;
+    }
 
-        // Check for existence of x.right
-        if (!isNil(x.getRightChild()))
-            x.getRightChild().setParent(y); 
-        x.setParent(y.getParent()); 
+    private INode<T,V> UncleBlack(INode<T,V> x, INode<T,V> p, INode<T,V> g, INode<T,V> u) {
+        if (g.getLeftChild() != null && !g.getLeftChild().isNull() && p.getKey().compareTo(g.getLeftChild().getKey()) == 0) {
+            if (p.getLeftChild() != null && !p.getLeftChild().isNull() && x.getKey().compareTo(p.getLeftChild().getKey()) == 0) {
+                //LeftLeft
+                RightRotation(g);
+                boolean temp = p.getColor();
+                p.setColor(g.getColor());
+                g.setColor(temp);
+                return p;
+            } else {
+                //LeftRight
+                LeftRotation(p);
+                RightRotation(g);
+                boolean temp = x.getColor();
+                x.setColor(g.getColor());
+                g.setColor(temp);
+                return x;
+            }
+        } else {
+            if (p.getLeftChild() != null && !p.getLeftChild().isNull() && x.getKey().compareTo(p.getLeftChild().getKey()) == 0) {
+                //RightLeft
+                RightRotation(p);
+                LeftRotation(g);
+                boolean temp = x.getColor();
+                x.setColor(g.getColor());
+                g.setColor(temp);
+                return x;
+            } else {
+                //RightRight
+                LeftRotation(g);
+                boolean temp = p.getColor();
+                p.setColor(g.getColor());
+                g.setColor(temp);
+                return p;
+            }
+        }
+    }
 
-        // y.parent is nil
-        if (isNil(y.getParent()))
-            root = x;
+    private void LeftRotation(INode<T,V> a) {
+        INode<T,V> grand = a.getParent();
+        INode<T,V> b = a.getRightChild();
+        INode<T,V> c = b.getLeftChild();
+        // Perform rotation
+        b.setLeftChild(a);
+        a.setRightChild(c);
+        if (grand==null || grand.isNull())
+            root = b;
+        else {
+            if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+                grand.setLeftChild(b);
+            else
+                grand.setRightChild(b);
+        }
+        a.setParent(b);
+        if (c != null && !c.isNull())
+            c.setParent(a);
+        b.setParent(grand);
+        return;
+    }
 
-        // y is a right child of it's parent.
-        else if (y.getParent().getRightChild() == y)
-            y.getParent().setRightChild(x); 
+    private void RightRotation(INode<T,V> a) {
+        INode<T,V> b = a.getLeftChild();
+        INode<T,V> c = b.getRightChild();
+        // Perform rotation
+        b.setRightChild(a);
+        a.setLeftChild(c);
+        INode<T,V> grand = a.getParent();
+        if (grand == null || grand.isNull())
+            root = b;
+        else {
+            if ( grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+                grand.setLeftChild(b);
+            else
+                grand.setRightChild(b);
+        }
+        a.setParent(b);
+        if (c != null && !c.isNull())
+            c.setParent(a);
+        b.setParent(grand);
+        return;
+    }
 
-        // y is a left child of it's parent.
+    @Override
+    public boolean delete(T key) {
+        if(key==null)
+            throw new RuntimeErrorException(null);
+        boolean result=Delete(getRoot(),key);
+        return result;
+    }
+
+    private boolean Delete(INode<T,V> root,T key){
+        if( root.isNull())
+            return false;
+        else if(key.compareTo(root.getKey())<0)
+            Delete(root.getLeftChild(),key);
+        else if(key.compareTo(root.getKey())>0)
+            Delete(root.getRightChild(),key);
+        else  {
+            //case1 no children
+            if((root.getLeftChild().isNull())&&(root.getRightChild().isNull())){
+                if(root==getRoot()) {
+                    root.setKey(null);
+                    removeNode(root);
+                }
+                else {
+                    if (isBlackNode(root))
+                        DoubleBlack(root);
+                    removeNode(root);
+                }
+            }
+            //case2 one child
+            else if(root.getLeftChild().isNull()){
+                INode<T,V> temp=root.getRightChild();
+                root.setKey(temp.getKey());
+                root.setValue(temp.getValue());
+                Delete(temp,temp.getKey());
+
+            }
+            else if(root.getRightChild().isNull()){
+                INode<T,V> temp=root.getLeftChild();
+                root.setKey(temp.getKey());
+                root.setValue(temp.getValue());
+                Delete(temp,temp.getKey());
+            }
+            else{
+                INode<T,V> temp=FindMin(root.getRightChild());
+                root.setKey(temp.getKey());
+                root.setValue(temp.getValue());
+                Delete(root.getRightChild(),temp.getKey());
+            }
+        }
+        return true;
+    }
+
+    private void removeNode(INode<T,V> node){
+        node.setKey(null);
+        node.setValue(null);
+        node.setColor(false);
+        node.setRightChild(null);
+        node.setLeftChild(null);
+    }
+
+    private INode<T,V> FindMin(INode<T,V> r){
+        INode<T,V> min=r;
+        r=r.getLeftChild();
+        while(!r.isNull()){
+            if(r.getKey().compareTo(min.getKey())<0)
+                min=r;
+            r=r.getLeftChild();
+        }
+        return min;
+    }
+
+    private boolean isLeftChild(INode<T,V> r){
+        if(r.getParent().getLeftChild()==r)
+            return true;
         else
-            y.getParent().setLeftChild(x); 
-        
-        x.setRightChild(y); 
-        y.setParent(x); 
+            return false;
+    }
 
-	}
-	
-	@Override
-	public void insert(T key, V value) {
-		
-		INode<T, V> z = new Node<T,V>();
-		z.setKey(key);
-		z.setValue(value);
-		z.setLeftChild(nil);
-		z.setRightChild(nil);
-		z.setColor(Node.RED);
-		INode<T, V> y = nil;
-		INode<T, V>  x = root;
-		
+    private void DoubleBlack(INode<T,V> DB){
+        //case2
+        if(DB==getRoot())
+            return;
 
-		while (!isNil(x)){
-			y = x;
-			if (z.getKey().compareTo(x.getKey()) < 0){
-				x = x.getLeftChild();
-			}
-			else if (z.getKey().compareTo(x.getKey()) > 0){
-				x = x.getRightChild();
-			}
-			else 
-				return ;
-		}
-		z.setParent(y); 
-		
-		if (isNil(y))
-			root = z;
-		else if (key.compareTo(y.getKey()) < 0)
-			y.setLeftChild(z); 
-		else
-			y.setRightChild(z); 
-		
-		insertFixup(z);
-		
-	}
-	private void insertFixup(INode<T, V> z){
+            //case3
+        else if((Slibbing(DB).isNull())||((isBlackNode(Slibbing(DB)))&&(isBlackNode(Slibbing(DB).getRightChild()))&&(isBlackNode(Slibbing(DB).getLeftChild())))){
+            //System.out.println("Case3");
+            if(!Slibbing(DB).isNull())
+                Slibbing(DB).setColor(true);
+            if(isBlackNode(DB.getParent()))
+                DoubleBlack(DB.getParent());
+            else
+                DB.getParent().setColor(false);
+        }
+        //case4
+        else if(!isBlackNode(Slibbing(DB))){
+            //System.out.println("Case4");
+            SwapColors(Slibbing(DB),DB.getParent());
+            if(isLeftChild(DB))
+                LeftRotation(DB.getParent());
+            else
+                RightRotation(DB.getParent());
+            DoubleBlack(DB);
+        }
+        //case5
+        else if((isBlackNode(Slibbing(DB)))&&(isBlackNode(farDB(DB)))&&(!isBlackNode(nearDB(DB)))){
+            //System.out.println("Case5");
+            SwapColors(Slibbing(DB),nearDB(DB));
+            if(isLeftChild(DB))
+                RightRotation(Slibbing(DB));
+            else
+                LeftRotation(Slibbing(DB));
+            Case6(DB);
+        }
+        else
+            Case6(DB);
 
-		INode<T, V> y = nil;
+    }
 
-		while (z.getParent().getColor()){
+    private void Case6(INode<T,V> DB){
+        //System.out.println("Case6");
+        if(isBlackNode(Slibbing(DB))&&(!isLeftChild(DB))&&(!isBlackNode(Slibbing(DB).getLeftChild()))){
+            SwapColors(DB.getParent(),Slibbing(DB));
+            Slibbing(DB).getLeftChild().setColor(false);
+            if(isLeftChild(DB))
+                LeftRotation(DB.getParent());
+            else
+                RightRotation(DB.getParent());
+        }
+        else if(isBlackNode(Slibbing(DB))&&(isLeftChild(DB))&&(!isBlackNode(Slibbing(DB).getRightChild()))){
+            SwapColors(DB.getParent(),Slibbing(DB));
+            Slibbing(DB).getRightChild().setColor(false);
+            if(isLeftChild(DB))
+                LeftRotation(DB.getParent());
+            else
+                RightRotation(DB.getParent());
+        }
+        else
+            return;
+    }
 
-			if (z.getParent() == z.getParent().getParent().getLeftChild()){
-				y = z.getParent().getParent().getRightChild();
-				// Case 1: if y is red...recolor
-				if (y.getColor()){
-					z.getParent().setColor(Node.BLACK); 
-					y.setColor(Node.BLACK); 
-					z.getParent().getParent().setColor(Node.RED); 
-					z = z.getParent().getParent();
-				}
-				// Case 2: if y is black & z is a right child
-				else if (z == z.getParent().getRightChild()){
-					// leftRotaet around z's parent
-					z = z.getParent();
-					leftRotate(z);
-				}
-				// Case 3: else y is black & z is a left child
-				else{
-					z.getParent().setColor(Node.BLACK); 
-					z.getParent().getParent().setColor(Node.RED);
-					rightRotate(z.getParent().getParent());
-				}
-			}
+    private boolean isBlackNode(INode<T,V> node){
+        if(node.isNull())
+            return true;
+        else if(!node.getColor())
+            return true;
+        else
+            return false;
+    }
 
-			// If z's parent is the right child of it's parent.
-			else{
-				y = z.getParent().getParent().getLeftChild();
-				
-				// Case 1: if y is red...recolor
-				if (y.getColor()){
-					z.getParent().setColor(Node.BLACK); 
-					y.setColor(Node.BLACK); 
-					z.getParent().getParent().setColor(Node.RED); 
-					z = z.getParent().getParent();
-				}
-				// Case 2: if y is black & z is a right child
-				else if (z == z.getParent().getRightChild()){
-					// leftRotaet around z's parent
-					z = z.getParent();
-					leftRotate(z);
-				}
-				// Case 3: else y is black & z is a left child
-				else{
-					z.getParent().setColor(Node.BLACK); 
-					z.getParent().getParent().setColor(Node.RED);
-					rightRotate(z.getParent().getParent());
-				}
-			}
-		}
-	root.setColor(Node.BLACK); 
+    private INode<T,V> nearDB(INode<T,V> DB){
+        INode near;
+        if(isLeftChild(DB))
+            near=Slibbing(DB).getLeftChild();
+        else
+            near=Slibbing(DB).getRightChild();
+        return near;
+    }
 
-	}
-	
-	public  INode<T, V> treeMinimum( INode<T, V> node){
+    private INode<T,V> farDB(INode<T,V> DB){
+        INode far;
+        if(isLeftChild(DB))
+            far=Slibbing(DB).getRightChild();
+        else
+            far=Slibbing(DB).getLeftChild();
+        return far;
+    }
 
-		// while there is a smaller key, keep going left
-		while (!isNil(node.getLeftChild()))
-			node = node.getLeftChild();
-		return node;
-	}
-	public  INode<T, V> treeSuccessor( INode<T, V> x){
+    private INode<T,V> Slibbing(INode<T,V> DB){
+        INode slib;
+        if(DB.getParent().isNull())
+            return null;
+        if(isLeftChild(DB))
+            slib=DB.getParent().getRightChild();
+        else
+            slib=DB.getParent().getLeftChild();
+        return slib;
+    }
 
-		// if x.left is not nil, call treeMinimum(x.right) and
-		// return it's value
-		if (!isNil(x.getLeftChild()) )
-			return treeMinimum(x.getRightChild());
-
-		 INode<T, V> y = x.getParent();
-
-		// while x is it's parent's right child...
-		while (!isNil(y) && x == y.getRightChild()){
-			// Keep moving up in the tree
-			x = y;
-			y = y.getParent();
-		}
-		return y;
-	}
-
-	@Override
-	public boolean delete(T key) {
-		
-
-		    INode<T, V> z = searchToGetNode(key);
-		    if(z == nil)
-		    	return false ;
-
-		    INode<T, V> x = nil;
-		    INode<T, V> y = nil;
-
-			// if either one of z's children is nil, then remove z
-			if (isNil(z.getLeftChild()) || isNil(z.getRightChild()))
-				y = z;
-
-			// else we must remove the successor of z
-			else y = treeSuccessor(z);
-
-			// Let x be the left or right child of y (y can only have one child)
-			if (!isNil(y.getLeftChild()))
-				x = y.getLeftChild();
-			else
-				x = y.getRightChild();
-
-			// link x's parent to y's parent
-			x.setParent(y.getParent()); 
-
-			// If y's parent is nil, then x is the root
-			if (isNil(y.getParent()))
-				root = x;
-
-			// else if y is a left child, set x to be y's left sibling
-			else if (!isNil(y.getParent().getLeftChild()) && y.getParent().getLeftChild() == y)
-				y.getParent().setLeftChild(x);
-
-			// else if y is a right child, set x to be y's right sibling
-			else if (!isNil(y.getParent().getRightChild()) && y.getParent().getRightChild() == y)
-				y.getParent().setRightChild(x); 
-
-			// if y != z, trasfer y's satellite data into z.
-			if (y != z){
-				z.setKey(y.getKey()); 
-			}
-
-			// If y's color is black, it is a violation of the
-			// RedBlackTree properties so call removeFixup()
-			if (!y.getColor())
-				removeFixup(x);
-			
-			return true ;
-			
-			
-	}
-	
-	private void removeFixup(INode<T, V> x){
-
-		INode<T, V> w;
-
-		// While we haven't fixed the tree completely...
-		while (x != root && !x.getColor()){
-
-			// if x is it's parent's left child
-			if (x == x.getParent().getLeftChild()){
-
-				// set w = x's sibling
-				w = x.getParent().getRightChild();
-
-				// Case 1, w's color is red.
-				if (w.getColor()){
-					w.setColor(Node.BLACK); 
-					x.getParent().setColor(Node.RED); 
-					leftRotate(x.getParent());
-					w = x.getParent().getRightChild();
-				}
-
-				// Case 2, both of w's children are black
-				if (!w.getLeftChild().getColor() && !w.getRightChild().getColor()){
-					w.setColor(Node.RED); 
-					x = x.getParent();
-				}
-				// Case 3 / Case 4
-				else{
-					// Case 3, w's right child is black
-					if (!w.getRightChild().getColor()){
-						w.getLeftChild().setColor(Node.BLACK);
-						w.setColor(Node.RED); 
-						rightRotate(w);
-						w = x.getParent().getRightChild();
-					}
-					// Case 4, w = black, w.right = red
-					w.setColor(x.getParent().getColor()); 
-					x.getParent().setColor(Node.BLACK); 
-					w.getRightChild().setColor(Node.BLACK);
-					leftRotate(x.getParent());
-					x = root;
-				}
-			}
-			// if x is it's parent's right child
-			else{
-
-				// set w to x's sibling
-				w = x.getParent().getLeftChild();
-				
-				// Case 1, w's color is red.
-				if (w.getColor()){
-					w.setColor(Node.BLACK); 
-					x.getParent().setColor(Node.RED); 
-					leftRotate(x.getParent());
-					w = x.getParent().getRightChild();
-				}
-
-				// Case 2, both of w's children are black
-				if (!w.getLeftChild().getColor() && !w.getRightChild().getColor()){
-					w.setColor(Node.RED); 
-					x = x.getParent();
-				}
-				// Case 3 / Case 4
-				else{
-					// Case 3, w's right child is black
-					if (!w.getRightChild().getColor()){
-						w.getLeftChild().setColor(Node.BLACK);
-						w.setColor(Node.RED); 
-						rightRotate(w);
-						w = x.getParent().getRightChild();
-					}
-					// Case 4, w = black, w.right = red
-					w.setColor(x.getParent().getColor()); 
-					x.getParent().setColor(Node.BLACK); 
-					w.getRightChild().setColor(Node.BLACK);
-					leftRotate(x.getParent());
-					x = root;
-				}
-			
-			}
-			}
-		}
-	
-
-	
-
-
+    private void SwapColors(INode<T,V> node1,INode<T,V> node2){
+        boolean temp=node1.getColor();
+        node1.setColor(node2.getColor());
+        node2.setColor(temp);
+    }
 
 }
