@@ -187,58 +187,56 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
             throw new RuntimeErrorException(null);
         if(tree.isEmpty())
             return null;
-        boolean exist = tree.contains(key);
-        if(exist)
+        if(tree.contains(key))
             return key;
-        INode<T, V> less = greatest_lower(key);
-        if(less == null)
+        INode<T,V> great_low = greatest_lower(key);
+        if(great_low == null)
             return null;
-        return less.getKey();
+        return great_low.getKey();
     }
 
     @Override
     public V get(T key) {
         if(key == null)
             throw new RuntimeErrorException(null);
-        V value = tree.search(key);
-        return value;
+        return tree.search(key);
     }
 
-    @Override
-    public ArrayList<Map.Entry<T, V>> headMap(T toKey) {
-        if(toKey == null)
-            throw new RuntimeErrorException(null);
-        ArrayList<Map.Entry<T, V>> head = new ArrayList<>();
-        head = loophead(toKey, tree.getRoot(),head );
-        return head;
-    }
-
-    @Override
-    public ArrayList<Map.Entry<T, V>> headMap(T toKey, boolean inclusive) {
-        if(toKey == null)
-            throw new RuntimeErrorException(null);
-        ArrayList<Map.Entry<T, V>> head = new ArrayList<>();
-        head = loophead(toKey, tree.getRoot(),head );
-        if(inclusive){
-            if(tree.contains(toKey)) {
-                Map.Entry<T, V> current = new AbstractMap.SimpleEntry<T, V>((T) toKey, (V) tree.search(toKey));
-                head.add(current);
-            }
-        }
-        return head;
-    }
-
-    private ArrayList<Map.Entry<T, V>> loophead(T key, INode<T, V> root, ArrayList<Map.Entry<T, V>> head) {
+    private void inorder(T key, INode<T,V> root , ArrayList<Map.Entry<T,V>> head ) {
         if (root != null && !root.isNull()) {
-            loophead(key, root.getLeftChild(), head);
+            inorder(key, root.getLeftChild(), head);
             if(key.compareTo(root.getKey())>0) {
-                Map.Entry<T, V> node = new AbstractMap.SimpleEntry<T, V>((T) root.getKey(), (V) root.getValue());
+                Map.Entry<T, V> node = new AbstractMap.SimpleEntry<>(root.getKey(), root.getValue());
                 head.add(node);
             }
-            loophead(key, root.getRightChild(), head);
+            inorder(key, root.getRightChild(), head);
+        }
+    }
+
+    @Override
+    public ArrayList<Map.Entry<T,V>> headMap(T toKey) {
+        if(toKey == null)
+            throw new RuntimeErrorException(null);
+        ArrayList<Map.Entry<T,V>> head = new ArrayList<>();
+        inorder( toKey , tree.getRoot(), head );
+        return head;
+    }
+
+    @Override
+    public ArrayList<Map.Entry<T,V>> headMap(T toKey, boolean inclusive) {
+        if(toKey == null)
+            throw new RuntimeErrorException(null);
+        ArrayList<Map.Entry<T,V>> head = new ArrayList<>();
+        inorder(toKey, tree.getRoot(),head );
+        if(inclusive){
+            V value = tree.search(toKey);
+            if(value != null) {
+                head.add(new AbstractMap.SimpleEntry<>(toKey, value));
+            }
         }
         return head;
     }
+
 
     @Override
     public Set<T> keySet() {
