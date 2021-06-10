@@ -331,21 +331,19 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
 
     @Override
     public int size() {
-        int[] s = new int[1];
-        s[0] = 0;
+        Integer n = 0;
         if(!tree.isEmpty())
-            sizeloop(tree.getRoot(),s);
-        return s[0];
+            inorder(tree.getRoot(),n);
+        return n;
     }
 
 
-    private int[] sizeloop(INode root, int[] s) {
+    private void inorder(INode<T,V> root, Integer n) {
         if (root != null && !root.isNull()) {
-            sizeloop(root.getLeftChild(), s);
-            s[0]++;
-            sizeloop(root.getRightChild(), s);
+            inorder(root.getLeftChild(), n);
+            n++;
+            inorder(root.getRightChild(), n);
         }
-        return s;
     }
 
 
