@@ -313,12 +313,12 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
 
     @Override
     public void putAll(Map<T, V> map) {
-        if (map == null) throw new RuntimeErrorException(null);
-        Iterator<Map.Entry<T, V>> itr = map.entrySet().iterator();
-        while(itr.hasNext()) {
-            Map.Entry<T, V> entry = itr.next();
-            put(entry.getKey(), entry.getValue());
-        }
+        if (map == null)
+            throw new RuntimeErrorException(null);
+        map.forEach( m -> {
+            Map.Entry<T, V> node = (Map.Entry<T, V>) m;
+            put(node.getKey(), node.getValue());
+        });
     }
 
     @Override
