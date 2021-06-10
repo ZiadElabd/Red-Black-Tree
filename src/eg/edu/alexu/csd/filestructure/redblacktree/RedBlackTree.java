@@ -185,7 +185,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
         b.setLeftChild(a);
         a.setRightChild(c);
         if (grand==null || grand.isNull())
-            BasicRoot = b;
+            main_root = b;
         else {
             if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
                 grand.setLeftChild(b);
@@ -207,7 +207,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
         a.setLeftChild(c);
         INode grand = a.getParent();
         if (grand == null || grand.isNull())
-            BasicRoot = b;
+            main_root = b;
         else {
             if ( grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
                 grand.setLeftChild(b);
