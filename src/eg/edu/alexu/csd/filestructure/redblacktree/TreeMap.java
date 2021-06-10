@@ -101,50 +101,46 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
 
     // i start from here   # ziad elabd
 
+
+    private void preorder(INode<T, V> root, Set<Map.Entry<T, V>> set){
+        if(root.isNull()) return;
+        preorder(root.getLeftChild(),set);
+        Map.Entry<T, V> node = new AbstractMap.SimpleEntry<>( root.getKey() , root.getValue() );
+        set.add(node);
+        preorder(root.getRightChild(),set);
+    }
+
     @Override
     public Set<Map.Entry<T, V>> entrySet() {
-        if(tree.getRoot()==null || tree.getRoot().isNull())
-            return null;
+        INode<T, V> root =tree.getRoot();
+        if(root.isNull()) return null;
         Set<Map.Entry<T, V>> set = new LinkedHashSet<>();
-        set = loop(tree.getRoot(), set);
-        return set;
-    }
-
-    private Set<Map.Entry<T, V>> loop(INode<T, V> root, Set<Map.Entry<T, V>> set) {
-        if (root != null && !root.isNull()) {
-            loop(root.getLeftChild(), set);
-            Map.Entry<T, V> node = new AbstractMap.SimpleEntry<T, V>( root.getKey(),  root.getValue());
-            set.add(node);
-            loop(root.getRightChild(), set);
-        }
+        preorder(root,set);
         return set;
     }
 
     @Override
-    public Map.Entry<T, V> firstEntry() {
+    public Map.Entry<T,V> firstEntry() {
         if(tree.isEmpty())
             return null;
-        INode<T, V> root = tree.getRoot();
-        INode<T, V> prev = tree.getRoot();
-        if (tree.isEmpty())
-            return null;
-        while (root!=null && !root.isNull()){
-            prev = root;
-            root = root.getLeftChild();
+        INode<T,V> current = tree.getRoot();
+        INode<T,V> prev = current;
+        while (current !=null && !current.isNull()){
+            prev = current;
+            current = current.getLeftChild();
         }
-        Map.Entry <T, V> first = new AbstractMap.SimpleEntry<T, V>((T)prev.getKey(), (V) prev.getValue());
-        return first;
+        return new AbstractMap.SimpleEntry<>( prev.getKey() , prev.getValue() );
     }
 
     @Override
     public T firstKey() {
         if(tree.isEmpty())
             return null;
-        INode<T, V> root = tree.getRoot();
-        INode<T, V> prev = tree.getRoot();
-        while (root!=null && !root.isNull()){
-            prev = root;
-            root = root.getLeftChild();
+        INode<T,V> current = tree.getRoot();
+        INode<T,V> prev = current;
+        while (current !=null && !current.isNull()){
+            prev = current;
+            current = current.getLeftChild();
         }
         return prev.getKey();
     }
@@ -172,7 +168,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         return result;
     }
 
-    private INode<T, V> greatestLower(Comparable key){
+    private INode<T, V> greatestLower(T key){
         if(key == null)
             throw new RuntimeErrorException(null);
         INode<T, V> root = tree.getRoot();
