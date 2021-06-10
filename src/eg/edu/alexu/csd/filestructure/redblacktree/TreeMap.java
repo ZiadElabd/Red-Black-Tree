@@ -334,16 +334,16 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         int[] s = new int[1];
         s[0] = 0;
         if(!tree.isEmpty())
-            sizeloop(tree.getRoot(),s);
+            inorder(tree.getRoot(),s);
         return s[0];
     }
 
 
-    private int[] sizeloop(INode root, int[] s) {
+    private int[] inorder(INode root, int[] s) {
         if (root != null && !root.isNull()) {
-            sizeloop(root.getLeftChild(), s);
+            inorder(root.getLeftChild(), s);
             s[0]++;
-            sizeloop(root.getRightChild(), s);
+            inorder(root.getRightChild(), s);
         }
         return s;
     }
