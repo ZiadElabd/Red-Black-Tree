@@ -269,6 +269,8 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         return set;
     }
 
+    // i finished here   # ziad elabd
+
     @Override
     public Map.Entry<T, V> lastEntry() {
         if(tree.isEmpty())
@@ -281,7 +283,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
             prev = root;
             root = root.getRightChild();
         }
-        Map.Entry <T, V> last = new AbstractMap.SimpleEntry<T, V>((T)prev.getKey(), (V) prev.getValue());
+        Map.Entry <T, V> last = new AbstractMap.SimpleEntry<>(prev.getKey(),prev.getValue());
         return last;
     }
 
@@ -320,13 +322,12 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     public void put(T key, V value) {
         if(key == null || value==null)
             throw new RuntimeErrorException(null);
-        tree.insert(key, value);
+        tree.insert(key,value);
     }
 
     @Override
     public void putAll(Map<T, V> map) {
-        if(map == null)
-            throw new RuntimeErrorException(null);
+        if (map == null) throw new RuntimeErrorException(null);
         Iterator<Map.Entry<T, V>> itr = map.entrySet().iterator();
         while(itr.hasNext()) {
             Map.Entry<T, V> entry = itr.next();
@@ -336,12 +337,10 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
 
     @Override
     public boolean remove(T key) {
-        if(key == null)
-            throw new RuntimeErrorException(null);
-        boolean exist = tree.contains(key);
-        if(exist)
-            tree.delete(key);
-        return exist;
+        if (key == null) throw new RuntimeErrorException(null) ;
+        boolean isExist = tree.contains(key) ;
+        if (isExist) tree.delete(key) ;
+        return isExist;
     }
 
     @Override
@@ -353,7 +352,8 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         return s[0];
     }
 
-    private int[] sizeloop(INode<T, V> root, int[] s) {
+
+    private int[] sizeloop(INode root, int[] s) {
         if (root != null && !root.isNull()) {
             sizeloop(root.getLeftChild(), s);
             s[0]++;
@@ -362,21 +362,21 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         return s;
     }
 
+
     @Override
     public Collection<V> values() {
-        if(tree.isEmpty())
-            return null;
-        Collection <V> value = new LinkedList<>();
-        value = valueloop(tree.getRoot(), value);
-        return value;
+        if(tree.isEmpty()) return null ;
+        Collection <V> values = new LinkedList<>();
+        loop(tree.getRoot(), values)  ;
+        return values ;
+
     }
 
-    private Collection<V> valueloop(INode<T, V> root, Collection<V> value) {
+    private void loop(INode<T, V> root , Collection<V> arr) {
         if (root != null && !root.isNull()) {
-            valueloop(root.getLeftChild(), value);
-            value.add(root.getValue());
-            valueloop(root.getRightChild(), value);
+            loop(root.getLeftChild(),arr) ;
+            arr.add(root.getValue()) ;
+            loop(root.getRightChild(),arr) ;
         }
-        return value;
     }
 }
