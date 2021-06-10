@@ -353,18 +353,17 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     public Collection<V> values() {
         if(tree.isEmpty()) return null ;
         Collection <V> values = new LinkedList<>();
-        values = this.loop(tree.getRoot(), values)  ;
+        loop(tree.getRoot(), values)  ;
         return values ;
 
     }
 
-    private Collection<V> loop(INode<T, V> root , Collection<V> arr) {
+    private void loop(INode<T, V> root , Collection<V> arr) {
         if (root != null && !root.isNull()) {
             loop(root.getLeftChild(),arr) ;
             arr.add(root.getValue()) ;
             loop(root.getRightChild(),arr) ;
         }
-        return arr ;
     }
 
 }
