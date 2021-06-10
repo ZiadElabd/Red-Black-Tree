@@ -238,21 +238,20 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     }
 
 
+    private void inorder(INode<T,V> root, Set<T> set) {
+        if (root == null || root.isNull())
+            return;
+        inorder(root.getLeftChild(), set);
+        set.add(root.getKey());
+        inorder(root.getRightChild(), set);
+    }
+
     @Override
     public Set<T> keySet() {
         if(tree.isEmpty())
             return null;
         Set<T> set = new LinkedHashSet<>();
-        set = keyloop(tree.getRoot(),set);
-        return set;
-    }
-
-    private Set<T> keyloop(INode<T, V> root, Set<T> set) {
-        if (root != null && !root.isNull()) {
-            keyloop(root.getLeftChild(), set);
-            set.add(root.getKey());
-            keyloop(root.getRightChild(), set);
-        }
+        inorder(tree.getRoot(),set);
         return set;
     }
 
