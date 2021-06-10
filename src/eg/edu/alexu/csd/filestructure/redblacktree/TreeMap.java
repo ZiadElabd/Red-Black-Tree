@@ -258,18 +258,18 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     // i finished here   # ziad elabd
 
     @Override
-    public Map.Entry<T, V> lastEntry() {
+    public Map.Entry<T,V> lastEntry() {
         if(tree.isEmpty())
             return null;
-        INode<T, V> root = tree.getRoot();
-        INode<T, V> prev = tree.getRoot();
+        INode<T,V> root = tree.getRoot();
+        INode<T,V> prev = tree.getRoot();
         if (tree.isEmpty())
             return null;
         while (root!=null && !root.isNull()){
             prev = root;
             root = root.getRightChild();
         }
-        Map.Entry <T, V> last = new AbstractMap.SimpleEntry<>(prev.getKey(),prev.getValue());
+        Map.Entry<T, V> last = new AbstractMap.SimpleEntry<T, V>((T)prev.getKey(), (V) prev.getValue());
         return last;
     }
 
@@ -277,8 +277,8 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     public T lastKey() {
         if(tree.isEmpty())
             return null;
-        INode<T, V> root = tree.getRoot();
-        INode<T, V> prev = tree.getRoot();
+        INode<T,V> root = tree.getRoot();
+        INode<T,V> prev = tree.getRoot();
         while (root!=null && !root.isNull()){
             prev = root;
             root = root.getRightChild();
@@ -287,16 +287,16 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     }
 
     @Override
-    public Map.Entry<T, V> pollFirstEntry() {
+    public Map.Entry<T,V> pollFirstEntry() {
         if(tree.isEmpty())
             return null;
-        Map.Entry <T, V> first = firstEntry();
+        Map.Entry<T, V> first = firstEntry();
         tree.delete(first.getKey());
         return first;
     }
 
     @Override
-    public Map.Entry<T, V> pollLastEntry() {
+    public Map.Entry<T,V> pollLastEntry() {
         if(tree.isEmpty())
             return null;
         Map.Entry <T, V> last = lastEntry();
@@ -308,8 +308,9 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     public void put(T key, V value) {
         if(key == null || value==null)
             throw new RuntimeErrorException(null);
-        tree.insert(key,value);
+        tree.insert(key, value);
     }
+
     @Override
     public void putAll(Map<T,V> map) {
         if(map == null)
@@ -317,51 +318,54 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         Iterator<Map.Entry<T,V>> itr = map.entrySet().iterator();
         while(itr.hasNext()) {
             Map.Entry<T,V> entry = itr.next();
-            put( entry.getKey(), entry.getValue());
+            put(entry.getKey(), entry.getValue());
         }
     }
 
     @Override
     public boolean remove(T key) {
-        if (key == null) throw new RuntimeErrorException(null) ;
-        boolean isExist = tree.contains(key) ;
-        if (isExist) tree.delete(key) ;
-        return isExist;
+        if(key == null)
+            throw new RuntimeErrorException(null);
+        boolean exist = tree.contains(key);
+        if(exist)
+            tree.delete(key);
+        return exist;
     }
 
     @Override
     public int size() {
-        Integer n = 0;
+        int[] s = new int[1];
+        s[0] = 0;
         if(!tree.isEmpty())
-            inorder(tree.getRoot(),n);
-        return n;
+            sizeloop(tree.getRoot(),s);
+        return s[0];
     }
 
-
-    private void inorder(INode<T,V> root, Integer n) {
+    private int[] sizeloop(INode<T,V> root, int[] s) {
         if (root != null && !root.isNull()) {
-            inorder(root.getLeftChild(), n);
-            n++;
-            inorder(root.getRightChild(), n);
+            sizeloop(root.getLeftChild(), s);
+            s[0]++;
+            sizeloop(root.getRightChild(), s);
         }
+        return s;
     }
-
 
     @Override
     public Collection<V> values() {
-        if(tree.isEmpty()) return null ;
-        Collection <V> values = new LinkedList<>();
-        loop(tree.getRoot(), values)  ;
-        return values ;
-
+        if(tree.isEmpty())
+            return null;
+        Collection <V> value = new LinkedList<>();
+        value = valueloop(tree.getRoot(), value);
+        return value;
     }
 
-    private void loop(INode<T, V> root , Collection<V> arr) {
+    private Collection<V> valueloop(INode root, Collection value) {
         if (root != null && !root.isNull()) {
-            loop(root.getLeftChild(),arr) ;
-            arr.add(root.getValue()) ;
-            loop(root.getRightChild(),arr) ;
+            valueloop(root.getLeftChild(), value);
+            value.add(root.getValue());
+            valueloop(root.getRightChild(), value);
         }
+        return value;
     }
 
 }
