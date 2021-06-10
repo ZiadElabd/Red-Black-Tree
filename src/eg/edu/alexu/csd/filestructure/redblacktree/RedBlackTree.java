@@ -67,8 +67,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 
     @Override
     public void insert(T key, V value) {
-        if(key==null || value==null)
-            throw new RuntimeErrorException(null);
+        if(key==null || value==null)  throw new RuntimeErrorException(null);
         INode<T,V> exist = get_by_key(key);
         if (exist != null && !exist.isNull())
             exist.setValue(value);
@@ -77,7 +76,6 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
             INode last = get_by_key(prev_key);
             fix_color(last);
         }
-        return;
     }
 
 
