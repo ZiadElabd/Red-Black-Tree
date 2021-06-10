@@ -1,0 +1,601 @@
+
+t
+java:S1192ı"XDefine a constant instead of duplicating this literal "Fail to handle deletion" 5 times.(¤ÿ‹‚øÿÿÿÿ
+|
+java:S1192™"eDefine a constant instead of duplicating this literal "Fail to search for a key in the tree" 4 times.(Ç÷ú¥
+x
+java:S1192˜"aDefine a constant instead of duplicating this literal "Fail to insert a key in the tree" 3 times.(ïáÛ¯
+|
+java:S1192„"`Define a constant instead of duplicating this literal "Fail contains a key in the tree" 4 times.(¶ŠÍœøÿÿÿÿ
+
+java:S1192ê"jDefine a constant instead of duplicating this literal "Fail to handle search with null parameter" 3 times.(Ù«¤è
+r
+java:S1192š"VDefine a constant instead of duplicating this literal "Fail in ceiling entry" 3 times.(º…¼úÿÿÿÿ
+t	java:S135°"YReduce the total number of break and continue statements in this loop to use at most one.(ı¬¥üÿÿÿÿ
+t	java:S135ü"YReduce the total number of break and continue statements in this loop to use at most one.(ı¬¥üÿÿÿÿ
+Z
+java:S1155¬">Use isEmpty() to check whether the collection is empty or not.(£Æ…¶ûÿÿÿÿ
+D
+java:S1604‡
+"(Make this anonymous inner class a lambda(ïàò¹ÿÿÿÿÿ
+D
+java:S1604º
+"(Make this anonymous inner class a lambda(ïàò¹ÿÿÿÿÿ
+Y
+java:S2259£"BA "NullPointerException" could be thrown; "node" is nullable here.(Ôğ£ò
+Q
+java:S1128";Remove this unused import 'org.hamcrest.core.IsInstanceOf'.(üå­÷
+7
+java:S1170"!Make this final field static too.(­øë
+@
+java:S11814"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(íÌˆ„úÿÿÿÿ
+J
+java:S6212,"/Declare this local variable with "var" instead.(’¼Œ‹øÿÿÿÿ
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(’É¸Âşÿÿÿÿ
+@
+java:S1181G"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+@
+java:S1181V"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+@
+java:S1181f"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+@
+java:S1181~"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+A
+java:S1181˜"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Œ"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Œ"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+K
+java:S6212”"/Declare this local variable with "var" instead.(ÿ¢Ú„øÿÿÿÿ
+A
+java:S1181§"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+A
+java:S1181¸"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+K
+java:S6212µ"/Declare this local variable with "var" instead.(†¤Ôùÿÿÿÿ
+A
+java:S1181Ò"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Æ"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Æ"Save and re-use this "Random".(¡Å”¦
+E
+java:S6212È"/Declare this local variable with "var" instead.(ïë¿
+F
+java:S6212É"/Declare this local variable with "var" instead.(¼µ½
+K
+java:S6212Î"/Declare this local variable with "var" instead.(ÿ¢Ú„øÿÿÿÿ
+A
+java:S1181é"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212à"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119à"Save and re-use this "Random".(¡Å”¦
+K
+java:S6212á"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+F
+java:S6212â"/Declare this local variable with "var" instead.(¼µ½
+D	java:S108ç")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181ƒ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212÷"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119÷"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ù"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212ú"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+K
+java:S6212ÿ"/Declare this local variable with "var" instead.(ÿ¢Ú„øÿÿÿÿ
+A
+java:S1181š"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212‘"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119‘"Save and re-use this "Random".(¡Å”¦
+K
+java:S6212’"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+F
+java:S6212“"/Declare this local variable with "var" instead.(¼µ½
+D	java:S108˜")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181©"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+A
+java:S1181º"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+K
+java:S6212·"/Declare this local variable with "var" instead.(†¤Ôùÿÿÿÿ
+A
+java:S1181Ô"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212È"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119È"Save and re-use this "Random".(¡Å”¦
+E
+java:S6212Ê"/Declare this local variable with "var" instead.(ïë¿
+F
+java:S6212Ë"/Declare this local variable with "var" instead.(¼µ½
+K
+java:S6212Ğ"/Declare this local variable with "var" instead.(ÿ¢Ú„øÿÿÿÿ
+A
+java:S1181ë"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212â"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119â"Save and re-use this "Random".(¡Å”¦
+K
+java:S6212ã"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+F
+java:S6212ä"/Declare this local variable with "var" instead.(¼µ½
+D	java:S108é")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181‚"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ù"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ù"Save and re-use this "Random".(¡Å”¦
+K
+java:S6212ú"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+F
+java:S6212û"/Declare this local variable with "var" instead.(¼µ½
+D	java:S108€")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181—"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119"Save and re-use this "Random".(¡Å”¦
+K
+java:S6212‘"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+F
+java:S6212’"/Declare this local variable with "var" instead.(“Ó‰Ç
+A
+java:S1181³"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212°"/Declare this local variable with "var" instead.(Ôõ¿š
+A
+java:S1181Ï"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+A
+java:S1181á"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108ß")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181ü"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ï"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ï"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ñ"/Declare this local variable with "var" instead.(“õüƒ
+K
+java:S6212ò"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181™"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Š"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Š"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Œ"/Declare this local variable with "var" instead.(“õüƒ
+K
+java:S6212"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181µ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212§"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119§"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212©"/Declare this local variable with "var" instead.(“õüƒ
+K
+java:S6212ª"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+K
+java:S6212­"/Declare this local variable with "var" instead.(ØÌğ³ÿÿÿÿÿ
+A
+java:S1181Ğ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ã"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ã"Save and re-use this "Random".(¡Å”¦
+E
+java:S6212Å"/Declare this local variable with "var" instead.(ïë¿
+K
+java:S6212Æ"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181í"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ş"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ş"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212à"/Declare this local variable with "var" instead.(“õüƒ
+K
+java:S6212á"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+K
+java:S6212æ"/Declare this local variable with "var" instead.(‘¦ä’ÿÿÿÿÿ
+K
+java:S6212ç"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181ÿ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108ı")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181™"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212"/Declare this local variable with "var" instead.(“Ó‰Ç
+2
+java:S3626²"Remove this redundant jump.(ÉŠ©ƒ
+A
+java:S1181º"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212¨"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119¨"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212©"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212ª"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212°"/Declare this local variable with "var" instead.(ı¬¥üÿÿÿÿ
+A
+java:S1181Ì"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108Ê")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181å"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Û"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Û"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ü"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212İ"/Declare this local variable with "var" instead.(“Ó‰Ç
+2
+java:S3626ş"Remove this redundant jump.(ÉŠ©ƒ
+A
+java:S1181…"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ô"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ô"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212õ"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212ö"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212ü"/Declare this local variable with "var" instead.(ı¬¥üÿÿÿÿ
+A
+java:S1181œ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212”"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119”"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212•"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212–"/Declare this local variable with "var" instead.(¡ÅÍª
+A
+java:S1181¯"%Catch Exception instead of Throwable.(ÓÌËÉûÿÿÿÿ
+D	java:S108¬")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181Ç"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212¾"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119¾"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212¿"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212À"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181İ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ö"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ö"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212×"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212Ø"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181ğ"%Catch Exception instead of Throwable.(ÓÌËÉûÿÿÿÿ
+D	java:S108í")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181ˆ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ÿ"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ÿ"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212€"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212"/Declare this local variable with "var" instead.(¡ÅÍª
+A
+java:S1181"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212—"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119—"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212˜"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212™"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181¼"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212­"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119­"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212®"/Declare this local variable with "var" instead.(õÛ¿û
+K
+java:S6212¯"/Declare this local variable with "var" instead.(îöÔºüÿÿÿÿ
+A
+java:S1181Ö"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ï"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ï"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ğ"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212Ñ"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181ğ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212é"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119é"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ê"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212ë"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181‚"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108€")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181œ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212‘"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119‘"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212’"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212“"/Declare this local variable with "var" instead.(“Ó‰Ç
+A
+java:S1181¼"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212«"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119«"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212¬"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212­"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212³"/Declare this local variable with "var" instead.(ı¬¥üÿÿÿÿ
+A
+java:S1181Î"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108Ì")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181ç"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212İ"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119İ"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ş"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212ß"/Declare this local variable with "var" instead.(“Ó‰Ç
+A
+java:S1181†	"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ö"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ö"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212÷"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212ø"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212ş"/Declare this local variable with "var" instead.(ı¬¥üÿÿÿÿ
+A
+java:S1181¡	"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212•	"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119•	"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212—	"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212˜	"/Declare this local variable with "var" instead.(¡ÅÍª
+A
+java:S1181²	"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108±	")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+K
+java:S6212¸	"/Declare this local variable with "var" instead.(€ê±Õúÿÿÿÿ
+F
+java:S6212½	"/Declare this local variable with "var" instead.(é´Ûâ
+A
+java:S1181Ü	"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Õ	"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Õ	"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ö	"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212×	"/Declare this local variable with "var" instead.(¡ÅÍª
+A
+java:S1181ì	"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108ë	")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181
+"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212û	"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119û	"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ı	"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212ş	"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212
+"/Declare this local variable with "var" instead.(¦šÕøÿÿÿÿ
+A
+java:S1181Ÿ
+"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108
+")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181Â
+"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212®
+"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119®
+"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212°
+"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212±
+"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212À
+"/Declare this local variable with "var" instead.(¦šÕøÿÿÿÿ
+A
+java:S1181ä
+"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ò
+"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ò
+"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ô
+"/Declare this local variable with "var" instead.(ï×ÿ‡
+F
+java:S6212Õ
+"/Declare this local variable with "var" instead.(¡ÅÍª
+K
+java:S6212ß
+"/Declare this local variable with "var" instead.(ùó›Ìøÿÿÿÿ
+A
+java:S1181ş
+"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212÷
+"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119÷
+"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ø
+"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212ù
+"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181˜"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212‘"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119‘"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212’"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212“"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181¶"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212­"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119­"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212®"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212¯"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181Õ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ì"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ì"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Í"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212Î"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181æ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108å")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181÷"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108ö")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181ˆ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108‡")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212–"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119–"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212˜"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212™"/Declare this local variable with "var" instead.(“Ó‰Ç
+A
+java:S1181®"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+D	java:S108­")Either remove or fill this block of code.(Ì¿«‰øÿÿÿÿ
+A
+java:S1181Æ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212¼"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119¼"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212¾"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212¿"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181Ü"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212Ô"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119Ô"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212Ö"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212×"/Declare this local variable with "var" instead.(¼µ½
+A
+java:S1181ù"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+F
+java:S6212ë"/Declare this local variable with "var" instead.(¡Å”¦
+5
+java:S2119ë"Save and re-use this "Random".(¡Å”¦
+F
+java:S6212ì"/Declare this local variable with "var" instead.(õÛ¿û
+F
+java:S6212í"/Declare this local variable with "var" instead.(¼µ½
+K
+java:S6212÷"/Declare this local variable with "var" instead.(›çúÿÿÿÿÿ
+T	java:S106Š"9Replace this use of System.out or System.err by a logger.(ê¾úİøÿÿÿÿ
+F
+java:S6212²"/Declare this local variable with "var" instead.(»üÏ²
+A
+java:S59600"+Remove this assertion from production code.(ë­Àò

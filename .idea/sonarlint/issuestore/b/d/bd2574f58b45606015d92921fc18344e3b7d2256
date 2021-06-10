@@ -1,0 +1,124 @@
+
+E
+java:S3740L"/Provide the parametrized type for this generic.(Ù¤¬ø
+E
+java:S3740M"/Provide the parametrized type for this generic.(úÉº
+E
+java:S3740X"/Provide the parametrized type for this generic.(õÜ¶â
+F
+java:S3740ï"/Provide the parametrized type for this generic.(á‡“å
+K
+java:S3740ø"/Provide the parametrized type for this generic.(–Í‰ğşÿÿÿÿ
+g	java:S117…"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¡Ë½
+l	java:S117§"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ¢Ú²üÿÿÿÿ
+g	java:S117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÇÎ°
+g	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¢æÿ
+f	java:S117÷"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àòu
+b
+java:S2259ñ"FA "NullPointerException" could be thrown; "sibling()" can return null.(­ı™Íúÿÿÿÿ
+d
+java:S2259Ó"FA "NullPointerException" could be thrown; "sibling()" can return null.(û¤€Ø8Ù¢ê˜Ÿ/
+d
+java:S2259Ñ"FA "NullPointerException" could be thrown; "sibling()" can return null.(æº¢Ù8Ù¢ê˜Ÿ/
+b
+java:S2259ü"FA "NullPointerException" could be thrown; "sibling()" can return null.(¤È¬øÿÿÿÿ
+g
+java:S2259­"K"NullPointerException" will be thrown when invoking method "isBlackNode()".(Îÿƒ¯ıÿÿÿÿ
+i
+java:S2259¯"FA "NullPointerException" could be thrown; "sibling()" can return null.(½ş÷·úÿÿÿÿ8Ù¢ê˜Ÿ/
+c
+java:S2259ó"FA "NullPointerException" could be thrown; "sibling()" can return null.(œ‚ÿ8Ø¢ê˜Ÿ/
+i
+java:S2259Ñ"K"NullPointerException" will be thrown when invoking method "isBlackNode()".(æº¢Ù8Ø¢ê˜Ÿ/
+n
+java:S2259Ù"K"NullPointerException" will be thrown when invoking method "isBlackNode()".(ê§Œ¾ÿÿÿÿÿ8Ú¢ê˜Ÿ/
+b
+java:S2259Ù"FA "NullPointerException" could be thrown; "sibling()" can return null.(ê§Œ¾ÿÿÿÿÿ
+m
+java:S2259¹"J"NullPointerException" will be thrown when invoking method "SwapColors()".(§ò¹Ùıÿÿÿÿ8Ø¢ê˜Ÿ/
+d
+java:S2259°"FA "NullPointerException" could be thrown; "sibling()" can return null.(€Ñ‰ı8×¢ê˜Ÿ/
+n
+java:S2259·"K"NullPointerException" will be thrown when invoking method "isBlackNode()".(æ‹§¿üÿÿÿÿ8Ø¢ê˜Ÿ/
+i
+java:S2259Û"FA "NullPointerException" could be thrown; "sibling()" can return null.(ƒ½„±úÿÿÿÿ8Ú¢ê˜Ÿ/
+i
+java:S2259­"FA "NullPointerException" could be thrown; "sibling()" can return null.(Îÿƒ¯ıÿÿÿÿ8Ù¢ê˜Ÿ/
+]
+java:S2259ú"FA "NullPointerException" could be thrown; "sibling()" can return null.(û½î
+n
+java:S2259Ç"K"NullPointerException" will be thrown when invoking method "rotate_left()".(ò›‡óùÿÿÿÿ8Ø¢ê˜Ÿ/
+i
+java:S2259Á"K"NullPointerException" will be thrown when invoking method "isBlackNode()".(£è¬£8Ú¢ê˜Ÿ/
+b
+java:S2259­"FA "NullPointerException" could be thrown; "sibling()" can return null.(Îÿƒ¯ıÿÿÿÿ
+o
+java:S2259Å"L"NullPointerException" will be thrown when invoking method "rotate_right()".(¸ÃÚÖúÿÿÿÿ8Ù¢ê˜Ÿ/
+i
+java:S2259­"FA "NullPointerException" could be thrown; "sibling()" can return null.(Îÿƒ¯ıÿÿÿÿ8Ù¢ê˜Ÿ/
+h
+java:S2259Ã"J"NullPointerException" will be thrown when invoking method "SwapColors()".(ÿº„´8Ù¢ê˜Ÿ/
+j	java:S116"URename this field "basic_root" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Â§¢
+m	java:S116"SRename this field "prev_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÄâÊøÿÿÿÿ
+\
+java:S1126"AReplace this if-then-else statement by a single return statement.(—´¼´øÿÿÿÿ
+c	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¢Ôö
+\
+java:S1126>"AReplace this if-then-else statement by a single return statement.(¼«¯˜üÿÿÿÿ
+1
+java:S3626P"Remove this redundant jump.(ûÁİ…
+c	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬È²‹
+J
+java:S2200m"/Only the sign of the result should be examined.(Âƒ™¡şÿÿÿÿ
+2
+java:S3626Œ"Remove this redundant jump.(ûÁİ…
+c	java:S100s"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í“³
+h
+java:S3776s"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(í“³
+9
+java:S1659t"$Declare "parent" on a separate line.(Ïòœj
+8
+java:S1659t"#Declare "grand" on a separate line.(Ïòœj
+8
+java:S1659t"#Declare "uncle" on a separate line.(Ïòœj
+B
+java:S1125u"'Remove the unnecessary boolean literal.(ùâåñşÿÿÿÿ
+a
+java:S1764w"KCorrect one of the identical sub-expressions on both sides of operator "&&"(˜Ï¾ø
+a
+java:S1764y"KCorrect one of the identical sub-expressions on both sides of operator "&&"(§»Ç
+B
+java:S1125~"'Remove the unnecessary boolean literal.(ûÇ›šùÿÿÿÿ
+B
+java:S1125~"'Remove the unnecessary boolean literal.(ûÇ›šùÿÿÿÿ
+C
+java:S1125„"'Remove the unnecessary boolean literal.(ò¨ÆØøÿÿÿÿ
+d	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Àøâ
+2
+java:S3626È"Remove this redundant jump.(ûÁİ…
+i	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ÔÀœüÿÿÿÿ
+2
+java:S3626Ş"Remove this redundant jump.(ûÁİ…
+i	java:S100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ã‚ºşÿÿÿÿ
+c	java:S100è"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áà$
+h
+java:S3776è"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Áà$
+d	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰È¿‰
+d	java:S100•"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦‚ÄÜ
+X
+java:S1126¡"AReplace this if-then-else statement by a single return statement.(ê¾¤
+2
+java:S3626ª"Remove this redundant jump.(ûÁİ…
+i	java:S100§"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ¢Ú²üÿÿÿÿ
+n
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ñ¢Ú²üÿÿÿÿ
+R	java:S125®"<This block of commented-out lines of code should be removed.(ÒŞÜ¼
+W	java:S125¸"<This block of commented-out lines of code should be removed.(±‘†™úÿÿÿÿ
+R	java:S125Â"<This block of commented-out lines of code should be removed.(Äåşº
+2
+java:S3626â"Remove this redundant jump.(ûÁİ…
+d	java:S100Ï"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÇÎ°
+W	java:S125Ğ"<This block of commented-out lines of code should be removed.(ûşŸæøÿÿÿÿ
+X
+java:S1126è"AReplace this if-then-else statement by a single return statement.(ÛÖÛ„
+d	java:S100Š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘«Õ¹

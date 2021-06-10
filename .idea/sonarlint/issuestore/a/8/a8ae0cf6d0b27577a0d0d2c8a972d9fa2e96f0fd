@@ -1,0 +1,45 @@
+
+{
+java:S4165ä"dRemove this useless assignment; "values" already holds the assigned value along all execution paths.(ÿ¢—±
+J
+java:S3740"/Provide the parametrized type for this generic.(ÂóÇªøÿÿÿÿ
+E
+java:S3740"/Provide the parametrized type for this generic.(³‡­Ù
+K
+java:S3740Ö"/Provide the parametrized type for this generic.(È„ˆğşÿÿÿÿ
+l	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìšº¢üÿÿÿÿ
+l	java:S117¿"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìšº¢üÿÿÿÿ
+^
+java:S2259ƒ"BA "NullPointerException" could be thrown; "prev" is nullable here.(«ü¡µøÿÿÿÿ
+^
+java:S2259"BA "NullPointerException" could be thrown; "prev" is nullable here.(ª½…ûıÿÿÿÿ
+–
+java:S2681;"{This statement will not be executed conditionally; only the first statement will be. The rest will execute unconditionally.(‰àÛ‚üÿÿÿÿ
+t
+java:S1488 "^Immediately return this expression instead of assigning it to the temporary variable "result".(¼ÓÊÖ
+s
+java:S1488"\Immediately return this expression instead of assigning it to the temporary variable "last".(ãÏ®
+M
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+7
+java:S1116;"Remove this empty statement.(‰àÛ‚üÿÿÿÿ
+<
+java:S1125="'Remove the unnecessary boolean literal.(¼™ñ
+M
+java:S1135S"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+M
+java:S1135Z"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+h	java:S100_"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÃ†•ùÿÿÿÿ
+F
+java:S1168s"+Return an empty collection instead of null.(áø×éùÿÿÿÿ
+d	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã²û¹
+K
+java:S6212­"/Declare this local variable with "var" instead.(–¤ç¾üÿÿÿÿ
+K
+java:S6212ç"/Declare this local variable with "var" instead.(¯±ëùÿÿÿÿ
+B
+java:S1168ü"+Return an empty collection instead of null.(¥¹ï
+K
+java:S6212Î"/Declare this local variable with "var" instead.(ÁÕÁæûÿÿÿÿ
+G
+java:S1168â"+Return an empty collection instead of null.(ØØµÿÿÿÿÿ
