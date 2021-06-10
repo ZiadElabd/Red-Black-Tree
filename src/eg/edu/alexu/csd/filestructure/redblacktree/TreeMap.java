@@ -146,43 +146,36 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
     }
 
     @Override
-    public Map.Entry<T, V> floorEntry(T key) {
+    public Map.Entry<T,V> floorEntry(T key) {
         if(key == null)
             throw new RuntimeErrorException(null);
         if(tree.isEmpty())
             return null;
-        V value;
-        boolean exist = tree.contains(key);
-        if(exist)
-            value = tree.search(key);
-        else{
-            INode<T, V> less = greatestLower(key);
-            if(less == null)
+        V value = tree.search(key);
+        if(value == null){  // key doesn't exist
+            INode<T,V> great_low = greatest_lower(key);
+            if(great_low == null)
                 return null;
-            else {
-                value = less.getValue();
-                key = less.getKey();
-            }
+            return new AbstractMap.SimpleEntry<>( great_low.getKey() , great_low.getValue() );
         }
-        Map.Entry<T, V> result = new AbstractMap.SimpleEntry<T, V>((T) key, (V) value);
-        return result;
+        return new AbstractMap.SimpleEntry<>( key , value );
     }
 
-    private INode<T, V> greatestLower(T key){
+    private INode<T,V> greatest_lower(T key){
         if(key == null)
             throw new RuntimeErrorException(null);
-        INode<T, V> root = tree.getRoot();
-        INode<T, V> prev = null;
-        while (root!=null && !root.isNull()){
-            if(key.compareTo(root.getKey())>0) {
-                prev = root;
-                root = root.getRightChild();
-            }
-            else if(root.getLeftChild()!=null && !root.getLeftChild().isNull()&& key.compareTo(root.getLeftChild().getKey())>0){
-                prev = root.getLeftChild();
-                root = prev.getRightChild();
-            }
-            else
+        INode<T,V> current = tree.getRoot();
+        INode<T,V> prev = null;
+        while (current !=null && !current.isNull()){
+            if(key.compareTo(current.getKey())>0) {  // key > current
+                prev = current;
+                current = current.getRightChild();
+            }else if( current.getLeftChild()!=null
+                    && !current.getLeftChild().isNull()
+                    && key.compareTo(current.getLeftChild().getKey())>0){  // key > left child
+                prev = current.getLeftChild();
+                current = prev.getRightChild();
+            }else  // return the last node that achieved the conditions
                 return prev;
         }
         return prev;
@@ -197,7 +190,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         boolean exist = tree.contains(key);
         if(exist)
             return key;
-        INode<T, V> less = greatestLower(key);
+        INode<T, V> less = greatest_lower(key);
         if(less == null)
             return null;
         return less.getKey();
