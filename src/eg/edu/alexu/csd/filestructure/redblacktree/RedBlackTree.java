@@ -176,46 +176,47 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
         }
     }
 
-    private void rotate_left(INode<T,V> node) {
-        INode<T,V> grand = node.getParent();
-        INode<T,V> right = node.getRightChild();
-        INode<T,V> left = right.getLeftChild();
-        // Perform rotation
-        right.setLeftChild(node);
-        node.setRightChild(left);
-        if (grand==null || grand.isNull())
-            main_root = right;
-        else {
-            if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && node.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
-                grand.setLeftChild(right);
-            else
-                grand.setRightChild(right);
-        }
-        node.setParent(right);
-        if (left != null && !left.isNull())
-            left.setParent(node);
-        right.setParent(grand);
-        return;
-    }
 
-    private void rotate_right(INode<T,V> node) {
-        INode<T,V> b = node.getLeftChild();
-        INode<T,V> c = b.getRightChild();
+    private void rotate_left(INode a) {
+        INode grand = a.getParent();
+        INode b = a.getRightChild();
+        INode c = b.getLeftChild();
         // Perform rotation
-        b.setRightChild(node);
-        node.setLeftChild(c);
-        INode<T,V> grand = node.getParent();
-        if (grand == null || grand.isNull())
-            main_root = b;
+        b.setLeftChild(a);
+        a.setRightChild(c);
+        if (grand==null || grand.isNull())
+            BasicRoot = b;
         else {
-            if ( grand.getLeftChild() != null && !grand.getLeftChild().isNull() && node.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+            if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
                 grand.setLeftChild(b);
             else
                 grand.setRightChild(b);
         }
-        node.setParent(b);
+        a.setParent(b);
         if (c != null && !c.isNull())
-            c.setParent(node);
+            c.setParent(a);
+        b.setParent(grand);
+        return;
+    }
+
+    private void rotate_right(INode a) {
+        INode b = a.getLeftChild();
+        INode c = b.getRightChild();
+        // Perform rotation
+        b.setRightChild(a);
+        a.setLeftChild(c);
+        INode grand = a.getParent();
+        if (grand == null || grand.isNull())
+            BasicRoot = b;
+        else {
+            if ( grand.getLeftChild() != null && !grand.getLeftChild().isNull() && a.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+                grand.setLeftChild(b);
+            else
+                grand.setRightChild(b);
+        }
+        a.setParent(b);
+        if (c != null && !c.isNull())
+            c.setParent(a);
         b.setParent(grand);
         return;
     }
