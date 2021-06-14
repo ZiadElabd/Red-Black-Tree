@@ -68,12 +68,14 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
     @Override
     public void insert(T key, V value) {
         if(key==null || value==null)  throw new RuntimeErrorException(null);
+        //check if the key is existed before
         INode<T,V> exist = get_by_key(key);
         if (exist != null && !exist.isNull())
+            // set the new value of the existed key
             exist.setValue(value);
         else {
-            binary_insert(getRoot(), key, value, new Node());
-            INode last = get_by_key(prev_key);
+            // insert the new node in its place
+            INode last= binary_insert(getRoot(), key, value, new Node());
             fix_color(last);
         }
     }
@@ -82,14 +84,15 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
 
     private INode<T,V> binary_insert(INode<T,V> root, T key, V value, INode<T,V> parent) {
         if (root == null || root.isNull() ) {
-            if(root == null)
-                root = new Node();
             if (getRoot() == null || getRoot().isNull()) {
-                root.setColor(false);
+                root = new Node();
+                root.setColor(false); // set root to black
                 main_root = root;
-            }else
-                root.setColor(true);
-
+            }else {
+                root.setColor(true); // it's leave node so set to red
+                if (key.compareTo(parent.getKey()) < 0) parent.setLeftChild(root);
+                else if(key.compareTo(parent.getKey()) > 0) parent.setRightChild(root);
+            }
             root.setKey(key);
             root.setValue(value);
             root.setParent(parent);
@@ -102,10 +105,10 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
             root.setRightChild(r);
             return root;
         }
-        if (key.compareTo(root.getKey()) < 1) {
-            root.setLeftChild(binary_insert(root.getLeftChild(), key, value, root));
-        } else if (key.compareTo(root.getKey()) == 1) {
-            root.setRightChild(binary_insert(root.getRightChild(), key, value, root));
+        if (key.compareTo(root.getKey()) < 0) {
+            return binary_insert(root.getLeftChild(), key, value, root);
+        } else if (key.compareTo(root.getKey()) > 0) {
+            return binary_insert(root.getRightChild(), key, value, root);
         }
         return root;
     }
