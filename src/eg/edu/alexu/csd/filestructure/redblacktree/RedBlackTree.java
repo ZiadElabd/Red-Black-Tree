@@ -112,25 +112,7 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
         }
         return root;
     }
-   /* private void fix_colors(INode<T,V> node){
-        INode<T,V> temp=node;
-        INode<T,V> parent=node.getParent();
-        //case0
-        if(getRoot()==node) return;
-        //case 1
-       if(!parent.isNull()&&!parent.getColor()) return;
-       //case2
-        if(!parent.isNull()&&parent.getColor()){
-            INode<T,V> grand=parent.getParent();
-            if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
-                uncle = grand.getRightChild();
-            else
-                uncle = grand.getLeftChild();
-            if (cousin.getColor())
-        }
-
-
-    }*/
+  
     private void fix_color (INode<T,V> node) {
         INode<T,V> x = node;
         INode<T,V> parent, grand, uncle;
