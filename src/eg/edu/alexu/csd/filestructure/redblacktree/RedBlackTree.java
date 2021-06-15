@@ -84,7 +84,7 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
 
     private INode<T,V> binary_insert(INode<T,V> root, T key, V value, INode<T,V> parent) {
         if (root == null || root.isNull() ) {
-            if (getRoot() == null || getRoot().isNull()) {
+            if (getRoot() == null|| getRoot().isNull()) {
                 root = new Node();
                 root.setColor(false); // set root to black
                 main_root = root;
@@ -112,51 +112,75 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
         }
         return root;
     }
+   /* private void fix_colors(INode<T,V> node){
+        INode<T,V> temp=node;
+        INode<T,V> parent=node.getParent();
+        //case0
+        if(getRoot()==node) return;
+        //case 1
+       if(!parent.isNull()&&!parent.getColor()) return;
+       //case2
+        if(!parent.isNull()&&parent.getColor()){
+            INode<T,V> grand=parent.getParent();
+            if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+                uncle = grand.getRightChild();
+            else
+                uncle = grand.getLeftChild();
+            if (cousin.getColor())
+        }
 
+
+    }*/
     private void fix_color (INode<T,V> node) {
-        INode<T,V> x = node, parent, grand, uncle;
-        if (x!=null && !x.isNull() && x.getColor() == true){
+        INode<T,V> x = node;
+        INode<T,V> parent, grand, uncle;
+        // if the node is black then exit
+        if (!x.isNull() && x.getColor() == true){
             parent = x.getParent();
-            if (!parent.isNull() && !parent.isNull()) {
+            //check if it reach root
+            if (!parent.isNull()) {
                 grand = parent.getParent();
-                if (!grand.isNull() && !grand.isNull()) {
-                    if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
+                if (!grand.isNull()) {
+                    //getting uncle
+                    if ( !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0)
                         uncle = grand.getRightChild();
                     else
                         uncle = grand.getLeftChild();
-                    if (uncle != null && !uncle.isNull() && uncle.getColor() == true && parent.getColor() == true)  {
+                    //case 1 parent is red and uncle is red
+                    if (!uncle.isNull() && uncle.getColor() == true && parent.getColor() == true)  {
                         parent.setColor(false);
                         uncle.setColor(false);
                         grand.setColor(true);
+                        // repeat the operation again until it reach black node of black node
                         fix_color(grand);
                     }
-                    else if(parent.getColor() == true) {
+                    //case 2 parent is red but uncle is black or null
+                    else if(parent.getColor() == true&&(uncle.getColor()==false||uncle.isNull())) {
                         INode<T,V> New = UncleBlack(x, parent, grand);
                         fix_color(New);
                     }
                 }
             } else
-                x.setColor(false);
+                x.setColor(false); // reach root node so set it to black again
         }
         return;
     }
 
     private INode<T,V> UncleBlack(INode<T,V> x, INode<T,V> parent, INode<T,V> grand) {
-        if (grand.getLeftChild() != null && !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0) {
-            if (parent.getLeftChild() != null && !parent.getLeftChild().isNull() && x.getKey().compareTo(parent.getLeftChild().getKey()) == 0) {
+        // check current node postion
+        if ( !grand.getLeftChild().isNull() && parent.getKey().compareTo(grand.getLeftChild().getKey()) == 0) {
+            if ( !parent.getLeftChild().isNull() && x.getKey().compareTo(parent.getLeftChild().getKey()) == 0) {
                 //LeftLeft
                 rotate_right(grand);
-                boolean temp = parent.getColor();
-                parent.setColor(grand.getColor());
-                grand.setColor(temp);
+                parent.setColor(false);
+                grand.setColor(true);
                 return parent;
             } else {
                 //LeftRight
                 rotate_left(parent);
                 rotate_right(grand);
-                boolean temp = x.getColor();
-                x.setColor(grand.getColor());
-                grand.setColor(temp);
+                x.setColor(false);
+                grand.setColor(true);
                 return x;
             }
         } else {
@@ -164,16 +188,14 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
                 //RightLeft
                 rotate_right(parent);
                 rotate_left(grand);
-                boolean temp = x.getColor();
-                x.setColor(grand.getColor());
-                grand.setColor(temp);
+                x.setColor(false);
+                grand.setColor(true);
                 return x;
             } else {
                 //RightRight
                 rotate_left(grand);
-                boolean temp = parent.getColor();
-                parent.setColor(grand.getColor());
-                grand.setColor(temp);
+                parent.setColor(false);
+                grand.setColor(true);
                 return parent;
             }
         }

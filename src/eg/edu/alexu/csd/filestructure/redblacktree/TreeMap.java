@@ -99,9 +99,6 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
                 || Preordersearch(node.getRightChild(),value);
     }
 
-    // i start from here   # ziad elabd
-
-
     private void preorder(INode<T, V> root, Set<Map.Entry<T, V>> set){
         if(root.isNull()) return;
         preorder(root.getLeftChild(),set);
@@ -118,7 +115,7 @@ public class TreeMap < T extends Comparable <T>, V> implements ITreeMap<T, V>{
         preorder(root,set);
         return set;
     }
-
+    // i start from here   # ziad elabd
     @Override
     public Map.Entry<T,V> firstEntry() {
         if(tree.isEmpty())
