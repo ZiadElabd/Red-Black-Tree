@@ -112,7 +112,7 @@ public class RedBlackTree <T extends Comparable<T>, V> implements IRedBlackTree<
         }
         return root;
     }
-  
+
     private void fix_color (INode<T,V> node) {
         INode<T,V> x = node;
         INode<T,V> parent, grand, uncle;
